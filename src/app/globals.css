@@ -350,6 +350,14 @@ body {
   }
 }
 
+@utility bg-auth-dark {
+  background-image: var(--background-image-auth-dark);
+}
+
+@utility bg-auth-light {
+  background-image: var(--background-image-auth-light);
+}
+
 .custom-scrollbar::-webkit-scrollbar {
   width: 3px;
   height: 3px;
