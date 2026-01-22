@@ -23,8 +23,12 @@
         "source.organizeImports.biome": true
       }
     },
-    "JSON": { "formatter": { "language_server": { "name": "biome" } } },
-    "JSONC": { "formatter": { "language_server": { "name": "biome" } } },
+    "JSON": {
+      "formatter": { "language_server": { "name": "biome" } }
+    },
+    "JSONC": {
+      "formatter": { "language_server": { "name": "biome" } }
+    },
     "CSS": { "formatter": { "language_server": { "name": "biome" } } }
   },
   "lsp": {
@@ -33,5 +37,12 @@
         "require_config_file": true
       }
     }
-  }
+  },
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.DS_Store",
+    "**/.next",
+    "**/node_modules",
+    "**/next-env.d.ts"
+  ]
 }
