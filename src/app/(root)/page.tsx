@@ -1,12 +1,12 @@
 import Link from 'next/link'
 import type { FC } from 'react'
-import { auth } from '@/auth'
+import QuestionCard from '@/components/cards/question-card'
 import HomeFilter from '@/components/filters/home-filter'
 import LocalSearch from '@/components/search/local-search'
 import { Button } from '@/components/ui/button'
 import { ROUTES } from '@/constants'
 
-const questions = [
+const questions: Question[] = [
   {
     _id: '1',
     title: 'How to learn React?',
@@ -15,7 +15,12 @@ const questions = [
       { _id: '1', name: 'React' },
       { _id: '2', name: 'JavaScript' },
     ],
-    author: { _id: '1', name: 'John Doe' },
+    author: {
+      _id: '1',
+      name: 'John Doe',
+      image:
+        'https://static.vecteezy.com/system/resources/previews/002/002/403/non_2x/man-with-beard-avatar-character-isolated-icon-free-vector.jpg',
+    },
     upvotes: 10,
     answers: 5,
     views: 100,
@@ -26,14 +31,19 @@ const questions = [
     title: 'How to learn JavaScript?',
     description: 'I want to learn JavaScript, can anyone help me?',
     tags: [
-      { _id: '1', name: 'React' },
+      { _id: '1', name: 'JavaScript' },
       { _id: '2', name: 'JavaScript' },
     ],
-    author: { _id: '1', name: 'John Doe' },
+    author: {
+      _id: '1',
+      name: 'John Doe',
+      image:
+        'https://static.vecteezy.com/system/resources/previews/002/002/403/non_2x/man-with-beard-avatar-character-isolated-icon-free-vector.jpg',
+    },
     upvotes: 10,
     answers: 5,
     views: 100,
-    createdAt: new Date(),
+    createdAt: new Date('2021-09-01'),
   },
 ]
 
@@ -71,7 +81,7 @@ const Home: FC<SearchParams> = async ({ searchParams }) => {
       <HomeFilter />
       <div className='mt-10 flex w-full flex-col gap-6'>
         {filteredQuestions.map((question) => (
-          <h1 key={question._id}>{question.title}</h1>
+          <QuestionCard key={question._id} question={question} />
         ))}
       </div>
     </>
