@@ -10,18 +10,16 @@ import { Button } from '../ui/button'
 
 const SocialAuthForm: FC = () => {
   const router = useRouter()
-  const handleSignIn = async (provider: 'github' | 'google') => {
+  const handleSignIn = async (provider: 'github') => {
     try {
       const res = await signIn(provider, {
         callbackUrl: ROUTES.HOME,
         redirect: false,
       })
 
-      if ('url' in res && typeof res.url === 'string') {
+      if (typeof res.url === 'string') {
         router.push(res.url)
       }
-
-      console.log(res)
     } catch (error) {
       toast.error(
         error instanceof Error
